@@ -7,10 +7,29 @@ export default class App extends Component {
   state = {
     lat: -34.397,
     lng: 150.644,
-    zoom: ""
+    zoom: "",
+    title: "",
+    type: "",
+    marker_ready: false
   };
   zoomChange = (event) => {
     this.setState({ zoom: parseInt(event.target.value, 10) });
+  };
+
+  updateField = (event) => {
+    log("title", event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  add_marker = () => {
+    log("add_marker");
+    this.setState({ marker_ready: true }, () => {
+      console.log("inside marker_ready: ", this.state.marker_ready);
+      this.setState({ marker_ready: false });
+    });
+    console.log("outside marker_ready: ", this.state.marker_ready);
   };
 
   reposition(city) {
@@ -18,11 +37,11 @@ export default class App extends Component {
       case "tel aviv":
         this.setState({ lat: 32.0042938, lng: 34.7615399 });
         break;
-      case "paris":
-        this.setState({ lat: 48.8589507, lng: 2.4170995 });
+      case "ramatgan":
+        this.setState({lat:32.0718679, lng:34.861323});
         break;
-      case "london":
-        this.setState({ lat: 51.5287718, lng: 0.0384838 });
+      case "givatayim":
+        this.setState({lat:32.0703514, lng:34.8268141});
         break;
       default:
         alert("wrong city");
@@ -35,8 +54,8 @@ export default class App extends Component {
         <TopBar>Google Maps Example in React</TopBar>
         <div className="hbox mb20">
           <button onClick={() => this.reposition("tel aviv")}>Tel Aviv</button>
-          <button onClick={() => this.reposition("paris")}>Paris</button>
-          <button onClick={() => this.reposition("london")}>London</button>
+          <button onClick={() => this.reposition("givatayim")}>Givatayim</button>
+          <button onClick={() => this.reposition("ramatgan")}>Ramat Gan</button>
 
           <input
             type="number"
@@ -46,10 +65,14 @@ export default class App extends Component {
             onChange={this.zoomChange}
           />
         </div>
+        <button onClick={this.add_marker}>Add Marker</button>
         <GoogleMap
           lat={this.state.lat}
           lng={this.state.lng}
           zoom={this.state.zoom}
+          title={this.state.title}
+          type={this.state.type}
+          marker_ready={this.state.marker_ready}
         />
       </div>
     );
