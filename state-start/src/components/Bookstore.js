@@ -1,25 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import TopBar from "./TopBar";
 import NameInput from "./NameInput";
-import Book from "./Book";
-import Customers from "./Customers";
-import Employees from "./Employees";
+import Counter from "./Counter";
 
-export default class Bookstore extends Component {
-  render() {
-    return (
-      <div className="app">
-        <TopBar>React </TopBar>
-        <h1 className="headline white-text">* ^ * Stateful Bookstore * ^ *</h1>
-        <Book />
-        <br />
-        <hr />
-        <Customers />
-        <br />
-        <hr />
-        <Employees />
-        <NameInput />
-      </div>
-    );
-  }
-}
+const BookStore = () => (
+  <div className="app">
+    <TopBar>React Components are state machines</TopBar>
+
+    <h1 className="headline white-text">{"<<<<Stateful Bookstore>>>>"}</h1>
+    <Counter item="Book" />
+    <Counter item="Customers" />
+    <Counter item="Employees" />
+    <br />
+    <hr />
+    <NameInput />
+  </div>
+);
+
+export default BookStore;
