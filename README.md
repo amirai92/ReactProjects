@@ -1,2 +1,2 @@
 # ReactProjects
-This repository will be updated with mini projects that i'm doing while learning React&Redux.
+This repository will be updated with projects that i'm doing while learning React&Redux.
