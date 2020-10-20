@@ -4,14 +4,14 @@ import Card from "./Card";
 export default ({ list_data }) => {
   return (
     <div className="cards-list">
-      <ul> {create_list_ui(list_data)} </ul>
+      <ul>
+        {list_data &&
+          list_data.map((item) => (
+            <li key={item.id} className="card-item">
+              <Card {...item} />
+            </li>
+          ))}
+      </ul>
     </div>
   );
 };
-
-const create_list_ui = items =>
-  items.map(item => (
-    <li className="card-item" key={item.id}>
-      <Card {...item} />
-    </li>
-  ));

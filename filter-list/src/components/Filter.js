@@ -1,25 +1,27 @@
-// import React, { Component } from "react";
 import React from "react";
 import PropTypes from "prop-types";
 
 let num = -1;
-
-const Filter = ({ list_data, on_filter }) => {
-  const update_list = (event) => {
-    const txt = event.target.value;
+const Filter = ({ list_data, filter_data }) => {
+  const filter_the_list = (event) => {
+    const toFilterTxt = event.target.value;
+    console.log(toFilterTxt);
     const filtered_list = list_data.filter((item) =>
-      item.first_name.toLowerCase().includes(txt.toLowerCase())
+      item.first_name.toLowerCase().includes(toFilterTxt.toLowerCase())
     );
+    console.log(filtered_list);
     num = filtered_list.length;
-    on_filter(filtered_list);
+    filter_data({ filtered_list });
   };
 
   return (
     <div className="header">
       <h4 className="filter_title">
-        {num !== -1 ? num : list_data.length} items filtered
+        {num !== -1 ? num : list_data.length}
+        items filtered
       </h4>
-      <input className="filter" onChange={update_list} />
+
+      <input className="filter" onChange={filter_the_list} />
     </div>
   );
 };

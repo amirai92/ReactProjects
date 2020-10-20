@@ -1,11 +1,10 @@
 {
-  "name": "06-filter-list-solution",
+  "name": "06-filter-list-start",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"

@@ -41,14 +41,13 @@ li {
 /*--------------------*/
 .app {
   background: Cornsilk;
-  padding: 10.5rem 1.5rem 1.5rem;
+  padding: 8.5rem 1.5rem 1.5rem;
   border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0.4rem 1.5rem DimGrey;
   position: relative;
   margin-top: 7rem;
-  min-width: 60rem;
 }
 .header {
   background: lightsalmon;
@@ -81,6 +80,7 @@ li {
   font-weight: 400;
   color: darkred;
 }
+
 .headline {
   font-size: 5rem;
   font-weight: normal;
@@ -98,6 +98,16 @@ li {
 .white-text {
   color: mintcream;
 }
+/*.thumb{
+	border-radius: .8rem;
+    margin-top: 3rem;
+	padding: 3rem 7.5rem;
+	background-color: DarkSalmon;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}*/
 .top-bar {
   background: slategray;
   width: 100%;
@@ -139,7 +149,9 @@ li {
 }
 .cards-list {
   background: oldlace;
-  height: 75vh;
+  height: 77vh;
+  min-width: 37rem;
+  /*border: #0000b9 solid 3px;*/
   border-radius: 0.4rem;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -196,60 +208,4 @@ li {
   /*padding: 10px;*/
   background-color: darksalmon;
   transition: box-shadow 150ms, margin 150ms, padding 150ms;
-}
-/*Generic CSS Classes*/
-.cap {
-  text-transform: capitalize;
-}
-.mb20 {
-  margin-bottom: 2rem;
-}
-.mt20 {
-  margin-top: 2rem;
-}
-.fz35 {
-  font-size: 3.5rem;
-}
-.fz30 {
-  font-size: 3rem;
-}
-.fz25 {
-  font-size: 2.5rem;
-}
-
-.hbox {
-  display: flex;
-}
-.vbox {
-  display: flex;
-  flex-direction: column;
-}
-.space-between,
-.sb {
-  justify-content: space-between;
-}
-.space-around,
-.sa {
-  justify-content: space-around;
-}
-.align-items-center,
-.ai-center,
-.aic {
-  align-items: center;
-}
-.align-items-start,
-.ai-start,
-.ais {
-  align-items: flex-start;
-}
-.grow-1,
-.g1 {
-  flex-grow: 1;
-}
-.text-left,
-.tl {
-  text-align: left;
-}
-.dev {
-  border: fuchsia 2px dashed;
 }
