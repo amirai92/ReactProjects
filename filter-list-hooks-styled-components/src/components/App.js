@@ -6,6 +6,8 @@ import styled from "styled-components";
 const App = () => {
   const [original_list, set_original_list] = useState([]);
   const [filtered_list, set_filtered_list] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,27 +20,35 @@ const App = () => {
         const data = await response.json();
         set_original_list(data);
         set_filtered_list(data);
+        setIsLoading(false);
       } catch (error) {
-        console.log(`fetch operation failed :${error.message}`);
+        setErrorMessage(`fetch operation failed: ${error.message}`);
       }
     }
     fetchData();
   }, []);
+
   const update_list_state = (filtered_list) => {
     set_filtered_list(filtered_list);
   };
 
-  return (
-    <Box>
-      <Filter
-        list_data={original_list}
-        on_filter={update_list_state}
-        num={filtered_list.length}
-      />
-      <DataBox>
-        <List list_data={filtered_list} />
-      </DataBox>
-    </Box>
+  return errorMessage !== "" ? (
+    <h1>{errorMessage}</h1>
+  ) : isLoading ? (
+    <h1>Loading the data..</h1>
+  ) : (
+    <>
+      <Box>
+        <Filter
+          list_data={original_list}
+          on_filter={update_list_state}
+          num={filtered_list.length}
+        />
+        <DataBox>
+          <List list_data={filtered_list} />
+        </DataBox>
+      </Box>
+    </>
   );
 };
 export default App;

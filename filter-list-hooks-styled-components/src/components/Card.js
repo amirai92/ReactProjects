@@ -1,11 +1,11 @@
 import React from "react";
-import Thumb from "./Thumb";
+import ImageLoader from "./ImageLoader";
 import styled from "styled-components";
 
 export default ({ first_name, country, description, avatar }) => {
   return (
     <Card>
-      <Thumb image_url={avatar} />
+      <ImageLoader image_url={avatar} desc={description} container={Card} />
       <TextBox>
         <Title>
           {first_name} from {country}
@@ -39,29 +39,3 @@ const Msg = styled.p`
   max-width: 35rem;
 `;
 
-// const Title = styled.p`
-//   font-size: 3.8rem;
-//   font-weight: 400;
-//   font-family: "Yanone Kaffeesatz", sans-serif;
-//   color: slategray;
-// `;
-
-//   :hover {
-//     background: paleturquoise;
-//     ${ImageLoader} {
-//       box-shadow: 0 0.4rem 1.5rem DimGrey;
-//       margin-bottom: 3rem;
-//       padding-bottom: 1rem;
-//     }
-//   }
-//   :active {
-//     background: skyblue;
-//     color: white;
-//     ${Title} {
-//       color: white;
-//     }
-//     ${ImageLoader} {
-//       box-shadow: 0 0.4rem 1.5rem DimGrey;
-//     }
-//   }
-// `;
