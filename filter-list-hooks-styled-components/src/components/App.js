@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Filter from "./Filter";
+import Profile from "./Profile";
 import styled from "styled-components";
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
   const [filtered_list, set_filtered_list] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedProfile, setSelectedProfile] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,6 +22,8 @@ const App = () => {
         const data = await response.json();
         set_original_list(data);
         set_filtered_list(data);
+        if (data.length > 0) setSelectedProfile(data[0]);
+
         setIsLoading(false);
       } catch (error) {
         setErrorMessage(`fetch operation failed: ${error.message}`);
@@ -31,7 +35,9 @@ const App = () => {
   const update_list_state = (filtered_list) => {
     set_filtered_list(filtered_list);
   };
-
+  const update_selcted_profile = (item) => {
+    setSelectedProfile(item);
+  };
   return errorMessage !== "" ? (
     <h1>{errorMessage}</h1>
   ) : isLoading ? (
@@ -45,7 +51,11 @@ const App = () => {
           num={filtered_list.length}
         />
         <DataBox>
-          <List list_data={filtered_list} />
+          <Profile item={selectedProfile} />
+          <List
+            list_data={filtered_list}
+            onItemSelect={update_selcted_profile}
+          />
         </DataBox>
       </Box>
     </>

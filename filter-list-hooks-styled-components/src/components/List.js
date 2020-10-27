@@ -1,8 +1,16 @@
 import React from "react";
 import Card from "./Card";
+
 import styled from "styled-components";
 
-export default ({ list_data }) => {
+const List = ({ list_data, onItemSelect }) => {
+  const create_list_ui = (items) =>
+    items.map((item) => (
+      <ListItem key={item.id} onClick={() => onItemSelect(item)}>
+        <Card {...item} />
+      </ListItem>
+    ));
+
   return (
     <CardsList>
       <ul> {create_list_ui(list_data)} </ul>
@@ -10,13 +18,7 @@ export default ({ list_data }) => {
   );
 };
 
-const create_list_ui = (items) =>
-  items.map((item) => (
-    <ListItem key={item.id}>
-      <Card {...item} />
-    </ListItem>
-  ));
-
+export default List;
 const CardsList = styled.div`
   background: oldlace;
   height: 75vh;
@@ -29,7 +31,7 @@ const ListItem = styled.li`
   :nth-child(even) {
     background: honeydew;
   }
-  .card-item:nth-child(odd) {
+  :nth-child(odd) {
     background: white;
   }
 `;
