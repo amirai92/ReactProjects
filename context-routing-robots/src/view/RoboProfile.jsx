@@ -36,7 +36,6 @@ const RoboProfile = () => {
   );
 };
 
-// export default RoboProfile;
 export default memo(RoboProfile);
 
 const Box = styled.div`

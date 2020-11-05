@@ -32,7 +32,8 @@ const RoboProvider = ({ children }) => {
   // actions === callbacks to call
   const actions = {
     set_filtered_robots,
-    set_selected_robot
+    set_selected_robot,
+    set_all_robots
   };
 
   return <Provider value={{ ...state, ...actions }}>{children}</Provider>;

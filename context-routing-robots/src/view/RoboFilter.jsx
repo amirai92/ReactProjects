@@ -11,7 +11,7 @@ const Filter = () => {
 
   const update_list = (event) => {
     const txt = event.target.value;
-    //console.log('update_list')
+    console.log("update_list");
 
     const filtered_list = all_robots.filter((bot) =>
       bot.first_name.toLowerCase().includes(txt.toLowerCase())

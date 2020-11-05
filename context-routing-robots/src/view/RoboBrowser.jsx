@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RoboList from "./RoboList";
 import RoboFilter from "./RoboFilter";
 import RoboProfile from "./RoboProfile";
@@ -26,7 +26,6 @@ const RobotsBrowser = () => {
   );
 };
 
-// export default RobotsBrowser;
 export default RobotsBrowser;
 
 const Box = styled.div`

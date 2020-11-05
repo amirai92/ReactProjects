@@ -84,6 +84,9 @@ li {
     justify-content: center;
     align-items: center;
 }*/
+.error {
+  color: "red";
+}
 .top-bar {
   background: slategray;
   width: 100%;
