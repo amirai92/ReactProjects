@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const PageNotFound = () => {
   return (
     <Box>
-      404 <br /> Page Not Found!
+      <h1>404 - Not Found!</h1>
+      <Link to="/">Go Home</Link>
     </Box>
   );
 };
 
 const Box = styled.div`
-  font-size: 10rem;
+  font-size: 6rem;
   font-weight: normal;
   font-family: "Griffy", cursive;
   display: flex;

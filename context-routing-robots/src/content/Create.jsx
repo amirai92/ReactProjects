@@ -75,7 +75,7 @@ const Create = () => {
   return (
     <Box>
       <Title>Create a new Bot</Title>
-      <Form onSubmit={formik.handleSubmit} action="">
+      <Form onSubmit={formik.handleSubmit}>
         <Label>Bot First Name:</Label>
         <Input
           type="text"
@@ -140,7 +140,7 @@ const Create = () => {
           <div style={{ color: "red" }}>{formik.errors.avatar}</div>
         ) : null}
         <Button
-          disabled={!formik.isValid}
+          disabled={!(formik.isValid && formik.dirty)}
           onClick={(event) => {
             event.preventDefault();
             addRobot();

@@ -10,10 +10,6 @@ import { RoboProvider } from "./state/Robo.store";
 
 //Navigation
 import Links from "./content/Links";
-// {/* <RoboProvider>
-// <RobotsBrowser />
-// </RoboProvider> */
-// </Route>}
 
 const App = () => (
   <Router>
