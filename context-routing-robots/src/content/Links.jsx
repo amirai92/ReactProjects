@@ -27,6 +27,12 @@ const StyledLink = styled(Link)`
   font-size: 22px;
   line-height: 1.5;
   color: var(--color-header-text);
+  :hover {
+    background: ${({ bg }) => lighten(0.1, bg || "slategray")};
+  }
+  :active {
+    background: ${({ bg }) => darken(0.1, bg || "slategray")};
+  }
 `;
 
 const Nav = styled.ul`
